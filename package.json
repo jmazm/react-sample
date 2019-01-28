@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.config.prod.js"
+    "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.config.prod.js",
+    "babel": "babel ./src/template.js --out-file ./dist/tb.js -w"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,7 @@
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.5.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "prop-types": "^15.6.2",
     "react-hot-loader": "^4.6.3",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.1",

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Home extends Component {
     render () {
         return (
-            <div>cdffcccccc
-                hello11111ddd
-                <div>sssssdddsssddc</div>
+            <div>
+                <Link to="/template">go to template</Link>
             </div>
         )
     }

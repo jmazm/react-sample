@@ -3,7 +3,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { actionTypes, getName, addName } from '../store/template'
+import { addName } from '../store/template.thunk'
+import { addBirth} from '../store/template.promise'
+import { addAge } from '../store/template.saga'
 
 
 class Template extends Component {
@@ -13,12 +15,16 @@ class Template extends Component {
         this.modifyName = this.modifyName.bind(this);
     }
     render () {
-        const {name} = this.props;
+        const {name, age, birth} = this.props;
 
         return (
             <div>
                 <p>我的名字是：</p>
                 <h2>{ name }</h2>
+                <p>我的年龄是：</p>
+                <h2>{ age }</h2>
+                <p>我的出生地是：</p>
+                <h2>{ birth }</h2>
                 <button onClick={this.modifyName}>获取我的名字</button>
             </div>
         )
@@ -26,33 +32,51 @@ class Template extends Component {
     componentDidMount () {
         console.log(this.props.name)
     }
-    modifyName () {
-        this.props.addName({
+    async modifyName () {
+        await this.props.addName({
             name: 'jmazm'
+        });
+
+
+        this.props.addBirth({
+            birth: '三水'
+        });
+
+        this.props.addAge({
+            age: 22
         });
     }
 }
 
 Template.defaultProps = {
-    name: ''
+    name: '',
+    age: -1,
+    birth: ''
 };
 
 Template.propTypes = {
-    name: PropTypes.string
+    name: PropTypes.string,
+    age: PropTypes.number,
+    birth: PropTypes.string
 }
 
 function mapStateToProps (state) {
-    const template = state.template;
+    const thunk = state.thunk;
+    const promise = state.promise;
+    const saga = state.saga;
 
     return {
-        ...template
+        ...thunk,
+        ...promise,
+        ...saga
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        getName: bindActionCreators(getName, dispatch),
-        addName: bindActionCreators(addName, dispatch)
+        addName: bindActionCreators(addName, dispatch),
+        addBirth: bindActionCreators(addBirth, dispatch),
+        addAge: bindActionCreators(addAge, dispatch)
     }
 }
 

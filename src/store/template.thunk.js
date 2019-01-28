@@ -1,7 +1,6 @@
 // action types
 export const actionTypes = {
     ADD_NAME: 'ADD_NAME',
-    GET_NAME: 'GET_NAME'
 }
 
 
@@ -16,8 +15,8 @@ const initialState = {
 /**
  * 增加name
  * @param {string} name 
- */
-export function addName({
+//  */
+export function aAddName({
     name
 } = {}) {
     return {
@@ -26,14 +25,23 @@ export function addName({
     }
 }
 
-/**
- * 获取name
- */
-export function getName() {
-    return {
-        type: actionTypes.GET_NAME
+
+// redux-thunk => 异步action
+export function addName(payload) {
+    // 返回一个函数 function (dispatch, getState {}
+    return (dispatch, getState) => {
+        new Promise((resolved) => {
+            resolved('jmazm2');
+        }).then((data) => {
+            // dispatch一个同步action（action creator）- aAddName
+            dispatch(aAddName(payload));
+            // 通过getState()获取整个store的state
+            console.log(getState());
+            return data;
+        })
     }
 }
+
 
 // reducers
 export default function reducers(state = initialState, action) {

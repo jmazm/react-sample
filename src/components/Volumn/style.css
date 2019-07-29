@@ -1,0 +1,27 @@
+.volume-process {
+    position: relative;
+    left: 100px;
+    width: 360px;
+    height: 12px;
+    background: #eeeeee;
+    border-radius: 6px;
+}
+
+.volume-current {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 12px;
+    background: #47ad47;
+    border-radius: 6px;
+}
+.volume-item {
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border: 1px solid #cccccc;
+    border-radius: 50%;
+}

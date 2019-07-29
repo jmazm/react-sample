@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Volumn from '../components/Volumn';
 
 export default class Home extends Component {
     render () {
         return (
             <div>
-                <Link to="/template">go to template</Link>
+                {/* <Link to="/template">go to template</Link> */}
+                <Volumn/>
             </div>
         )
     }
 
     componentDidMount () {
-        this.sayHello();
+        // this.sayHello();
     }
     sayHello () {
         const elements = [1, 2, 3].map((item) => {

@@ -44,15 +44,28 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 1024,
-                        name: '[name].[ext]'
+                        name: '[name].[ext]',
+                        outputPath: 'images/',
+                        publicPath: '/images/'
                     }
                 }]
             }, {
                 test: /\.(woff(2)?|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: 'url-loader',
                 options: {
-                    name: '[name].[ext]?[hash]'
+                    name: '[name].[ext]?[hash]',
                 }
+            },{
+                test: /\.mp3$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        // limit: 1024,
+                        name: '[name].[ext]',
+                        outputPath: 'audios/',
+                        publicPath: '/audios/'
+                    }
+                }]
             }
         ]
     }

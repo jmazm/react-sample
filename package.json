@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/jmazm/react-sample#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "cross-env": "^5.2.0",
     "path": "^0.12.7",
     "react": "^16.8.6",
